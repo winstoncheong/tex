@@ -1,0 +1,163 @@
+% Version 2021 Dec 07 of winston.sty
+
+\ProvidesPackage{winston}
+
+\usepackage{microtype}
+
+% Useful editing things
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage{blindtext}
+\usepackage{outlines}
+\usepackage[obeyFinal,colorinlistoftodos]{todonotes}
+\usepackage[normalem]{ulem}
+\usepackage{soul}
+\usepackage{float}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{label=(\alph*)}
+
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    filecolor=magenta,
+    urlcolor=RubineRed,
+    citecolor=ForestGreen,
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+
+% Prevents widows and orphans
+\widowpenalties 1 10000
+\raggedbottom
+
+%%% Math stuff here
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{mathrsfs}
+\usepackage{physics}
+\usepackage{tikz-cd}
+
+% Formatting
+\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
+\newcommand{\vocab}[1]{\textbf{\textit{#1}}}
+
+% Theorems
+\usepackage{amsthm}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{note}[theorem]{Note}
+
+\newtheorem*{definition*}{Definition}
+\newtheorem*{example*}{Example}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{note*}{Note}
+
+
+% Problem environments
+\newtheorem{problem}{Problem}[section]
+\newtheorem{exercise}[problem]{Exercise}
+\newtheorem{question}[problem]{Question}
+
+% Answer environments
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+
+
+% Quick abbreviations
+\newcommand{\prp}{\textbf{Proposition.~}}
+\newcommand{\dfn}{\textbf{Definition.~}}
+\newcommand{\lem}{\textbf{Lemma:~}}
+\newcommand{\thm}{\textbf{Theorem:~}}
+\newcommand{\exm}{\textbf{Example:~}}
+\newcommand{\exms}{\textbf{Examples:~}}
+\newcommand{\exe}{\textbf{Exercise:~}}
+\newcommand{\exes}{\textbf{Exercises:~}}
+\newcommand{\rmk}{\textbf{Remark:~}}
+\newcommand{\ntn}{\textbf{Notation:~}}
+\newcommand{\nte}{\textbf{Note:~}}
+\newcommand{\warn}{\textcolor{red}{\textbf{Warn:~}}}
+
+% Alphabet in different font families
+\usepackage{xspace}
+
+% Blackboard bold
+\newcommand{\A}{\mathbb{A}\xspace}
+\newcommand{\CC}{\mathbb{C}\xspace}
+\newcommand{\FF}{\mathbb{F}\xspace}
+\newcommand{\HH}{\mathbb{H}\xspace}
+\newcommand{\NN}{\mathbb{N}\xspace}
+\newcommand{\PP}{\mathbb{P}\xspace}
+\newcommand{\QQ}{\mathbb{Q}\xspace}
+\newcommand{\RR}{\mathbb{R}\xspace}
+\newcommand{\TT}{\mathbb{T}\xspace}
+\newcommand{\ZZ}{\mathbb{Z}\xspace}
+
+% Calligraphic
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+
+% Script
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sO}{\mathscr{O}}
+
+% Fraktur
+\newcommand{\kM}{\mathfrak{M}}
+\newcommand{\ka}{\mathfrak{a}}
+\newcommand{\kf}{\mathfrak{f}}
+
+% Sans-serif
+
+% Upright
+
+% Boldface
+
+
+% My common macros
+\newcommand{\inv}{^{-1}}
+\newcommand{\iso}{\cong}
+\newcommand{\tensor}{\otimes}
+\newcommand{\too}{\longrightarrow}
+\newcommand{\mapstoo}{\longmapsto}
+
+%% End of template style
+%% Beginning of project specific settings:
+
+% Set up footer
+\usepackage{scrlayer-scrpage}
+\ifoot[BookShortName \\ Build: \today]{}
+

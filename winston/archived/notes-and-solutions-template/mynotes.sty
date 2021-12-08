@@ -1,0 +1,248 @@
+% Template version: reading-notes 2020 Jan 12
+
+\ProvidesPackage{mynotes}
+
+%\usepackage{subfiles} % discouraged
+\usepackage{microtype}
+
+% Useful editing things
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage{blindtext}
+\usepackage{outlines}
+\usepackage[obeyFinal,colorinlistoftodos]{todonotes}
+\usepackage[normalem]{ulem}
+\usepackage{soul}
+\usepackage{float}
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate,1]{label=(\alph*)}
+
+\usepackage[colorlinks=true]{hyperref}
+
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    filecolor=magenta,
+    urlcolor=RubineRed,
+    citecolor=ForestGreen,
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+
+% Prevents widows and orphans
+\widowpenalties 1 10000
+\raggedbottom
+
+%%% Math stuff here
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+
+% Formatting
+\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
+
+% Theorem environments
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{tcolorbox}
+
+\mdfdefinestyle{mdbluebox}{%
+  roundcorner = 10pt,
+  linewidth=1pt,
+  skipabove=12pt,
+  innerbottommargin=9pt,
+  skipbelow=2pt,
+  linecolor=blue,
+  nobreak=true,
+  backgroundcolor=TealBlue!5,
+}
+\declaretheoremstyle[
+headfont=\sffamily\bfseries\color{MidnightBlue},
+mdframed={style=mdbluebox},
+headpunct={\\[3pt]},
+postheadspace={0pt}
+]{thmbluebox}
+
+\mdfdefinestyle{mdredbox}{%
+  linewidth=0.5pt,
+  skipabove=12pt,
+  frametitleaboveskip=5pt,
+  frametitlebelowskip=0pt,
+  skipbelow=2pt,
+  frametitlefont=\bfseries,
+  innertopmargin=4pt,
+  innerbottommargin=8pt,
+  nobreak=true,
+  backgroundcolor=Salmon!5,
+  linecolor=RawSienna,
+}
+\declaretheoremstyle[
+headfont=\bfseries\color{RawSienna},
+mdframed={style=mdredbox},
+headpunct={\\[3pt]},
+postheadspace={0pt},
+]{thmredbox}
+
+\mdfdefinestyle{mdgreenbox}{%
+  skipabove=8pt,
+  linewidth=2pt,
+  rightline=false,
+  leftline=true,
+  topline=false,
+  bottomline=false,
+  linecolor=ForestGreen,
+  backgroundcolor=ForestGreen!5,
+}
+\declaretheoremstyle[
+headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+bodyfont=\normalfont,
+spaceabove=2pt,
+spacebelow=1pt,
+mdframed={style=mdgreenbox},
+headpunct={ --- },
+]{thmgreenbox}
+
+\mdfdefinestyle{mdblackbox}{%
+  skipabove=8pt,
+  linewidth=3pt,
+  rightline=false,
+  leftline=true,
+  topline=false,
+  bottomline=false,
+  linecolor=black,
+  backgroundcolor=RedViolet!5!gray!5,
+}
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\normalfont\small,
+spaceabove=0pt,
+spacebelow=0pt,
+mdframed={style=mdblackbox}
+]{thmblackbox}
+
+\theoremstyle{definition}
+% \declaretheorem[style=thmbluebox,name=Theorem]{theorem} 
+\declaretheorem[style=thmbluebox,name=Theorem,numberwithin=section]{theorem}
+
+
+\declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[style=thmbluebox,name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[style=thmbluebox,name=Corollary,sibling=theorem]{corollary}
+
+\declaretheorem[style=thmbluebox,name=Theorem,numbered=no]{theorem*}
+\declaretheorem[style=thmbluebox,name=Lemma,numbered=no]{lemma*}
+\declaretheorem[style=thmbluebox,name=Proposition,numbered=no]{proposition*}
+\declaretheorem[style=thmbluebox,name=Corollary,numbered=no]{corollary*}
+
+\declaretheorem[style=thmgreenbox,name=Definition,sibling=theorem]{definition}
+\declaretheorem[style=thmgreenbox,name=Definition,numbered=no]{definition*}
+
+\declaretheorem[style=thmredbox,name=Example,sibling=theorem]{example}
+\declaretheorem[style=thmredbox,name=Example,numbered=no]{example*}
+
+\declaretheorem[style=thmblackbox,name=Remark,sibling=theorem]{remark}
+\declaretheorem[style=thmblackbox,name=Remark,numbered=no]{remark*}
+
+% Quick abbreviations
+\newcommand{\prp}{\textbf{Proposition.~}}
+\newcommand{\dfn}{\textbf{Definition.~}}
+\newcommand{\lem}{\textbf{Lemma:~}}
+\newcommand{\thm}{\textbf{Theorem:~}}
+\newcommand{\exm}{\textbf{Example:~}}
+\newcommand{\exms}{\textbf{Examples:~}}
+\newcommand{\rmk}{\textbf{Remark:~}}
+\newcommand{\ntn}{\textbf{Notation:~}}
+\newcommand{\nte}{\textbf{Note:~}}
+\newcommand{\warn}{\textcolor{red}{\textbf{Warn:~}}}
+
+% Problem environments
+\newtheorem{problem}{Problem}[section]
+\newtheorem{exercise}[problem]{Exercise}
+\newtheorem{question}[problem]{Question}
+
+% Answer environments
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+
+% Remarks, but I want them bold
+\newtheorem*{claim}{Claim}
+\newtheorem*{note}{Note}
+
+% From Evan Chen
+\newenvironment{subproof}[1][Proof]{%
+\begin{proof}[#1] \renewcommand{\qedsymbol}{$\blacksquare$}}%
+{\end{proof}}
+
+\usepackage{xspace}
+\newcommand{\ZZ}{\mathbb{Z}\xspace}
+\newcommand{\NN}{\mathbb{N}\xspace}
+\newcommand{\QQ}{\mathbb{Q}\xspace}
+\newcommand{\RR}{\mathbb{R}\xspace}
+\newcommand{\CC}{\mathbb{C}\xspace}
+\newcommand{\HH}{\mathbb{H}\xspace}
+\newcommand{\FF}{\mathbb{F}\xspace}
+\newcommand{\PP}{\mathbb{P}\xspace}
+\newcommand{\TT}{\mathbb{T}\xspace}
+\newcommand{\A}{\mathbb{A}\xspace}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sO}{\mathscr{O}}
+
+\newcommand{\kM}{\mathfrak{M}}
+\newcommand{\ka}{\mathfrak{a}}
+\newcommand{\kf}{\mathfrak{f}}
+
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\mailto}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\ol}{\overline}
+% \newcommand{\ul}{\underline} % In soul
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\inv}{^{-1}}
+\newcommand{\iso}{\cong}
+\newcommand{\tensor}{\otimes}
+\newcommand{\too}{\longrightarrow}
+\newcommand{\mapstoo}{\longmapsto}
+\newcommand{\dirlim}{\varinjlim}
+\newcommand{\invlim}{\varprojlim}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\coker}{coker}
+
+%% End of template style
+%% Beginning of specific book's settings:
+
+% Set up footer
+\usepackage{scrlayer-scrpage}
+\ifoot[BookShortName \\ Build: \today]{}
+
